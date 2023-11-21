@@ -1,7 +1,7 @@
 external_components:
   - source: 
       type: git
-      url: https://github.com/heinekmadsen/esphome_components
+      url: https://github.com/esplor/esphome_components
       ref: main
     refresh: 0s
     components: [genvexv2]
@@ -95,7 +95,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp t7"
+    name: "Genvex temp T7 (Extract)"
     id: genvex_temp_t7
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -109,7 +109,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp panel"
+    name: "Genvex temp T2 (Panel)"
     id: genvex_temp_t2
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -121,22 +121,23 @@ sensor:
       ESP_LOGD("T2", "Processing T2 panel using lambda");
       return ((x - 300) / 10);
 
-  - platform: modbus_controller
-    modbus_controller_id: genvex_modbus_controller
-    name: "Genvex Messured Humidity"
-    id: genvex_messured_humidity
-    unit_of_measurement: '%'
-    accuracy_decimals: 1
-    device_class: humidity
-    register_type: read
-    address: 10
-    #filters:
-    #  - multiply: 0.01
-    on_value: 
-      - lambda: !lambda |-
-          id(aqi_humidity).publish_state( (x < 35) ? "Too Dry" : 
-                                          (x < 65) ? "Perfect" : 
-                                          "Too Humid");
+  # Can't find humidity on Optima 301
+  # - platform: modbus_controller
+  #   modbus_controller_id: genvex_modbus_controller
+  #   name: "Genvex Messured Humidity"
+  #   id: genvex_messured_humidity
+  #   unit_of_measurement: '%'
+  #   accuracy_decimals: 1
+  #   device_class: humidity
+  #   register_type: read
+  #   address: 10
+  #   #filters:
+  #   #  - multiply: 0.01
+  #   on_value: 
+  #     - lambda: !lambda |-
+  #         id(aqi_humidity).publish_state( (x < 35) ? "Too Dry" : 
+  #                                         (x < 65) ? "Perfect" : 
+  #                                         "Too Humid");
 
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
@@ -349,7 +350,7 @@ number:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex Ventilation speed"
+    name: "Genvex ventilation speed"
     id: genvex_ventilation_speed
     min_value: 0
     max_value: 4
@@ -366,7 +367,7 @@ binary_sensor:
     
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex preheat onoff"
+    name: "Genvex preheat on / off"
     id: genvex_preheat_on_off
     register_type: holding
     address: 1        
