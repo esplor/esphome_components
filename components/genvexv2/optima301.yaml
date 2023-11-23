@@ -356,7 +356,7 @@ number:
 binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex bypass onoff"
+    name: "Genvex bypass on / off"
     id: genvex_bypass_on_off
     register_type: read
     address: 107
