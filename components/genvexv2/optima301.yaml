@@ -1,3 +1,17 @@
+# About my system
+#
+# Genvex premium preheat 250 CL A R B (I have no idea what CL A R B means..)
+# SKU: 014116
+# Refrigerant 407C
+#
+# Optima 301 Design
+# Lang UK - Norwegian language contains some errors (Operation menu 20 and 21)
+# D: 3.7
+# C: 1.5
+# 
+# Similar systems:
+# https://github.com/lskov/esphome_components/blob/main/components/genvexv2/optima260.yaml
+
 external_components:
   - source: 
       type: git
