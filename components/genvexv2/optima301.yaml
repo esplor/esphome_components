@@ -35,7 +35,8 @@ select:
       - "2"
       - "3"
       - "4"
-      
+  
+  # This is limited up to 3 hours by default, can be adjusted in Service menu #17
   - platform: genvexv2
     modbus_controller_id: genvex_modbus_controller
     name: "Genvex timer"
