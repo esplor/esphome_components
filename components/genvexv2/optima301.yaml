@@ -13,7 +13,7 @@ select:
     modbus_controller_id: genvex_modbus_controller
     name: "Genvex speed mode"
     id: genvex_speed_mode
-    icon: "mdi:fan"
+    icon: mdi:fan
     address: 100
     options:
       - "Off"
@@ -25,7 +25,8 @@ select:
   - platform: genvexv2
     modbus_controller_id: genvex_modbus_controller
     name: "Genvex timer"
-    id: genvex_timer    
+    id: genvex_timer
+    icon: mdi:timer
     address: 106
     options:
       - "Off"
@@ -47,7 +48,7 @@ sensor:
     
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp t1"
+    name: "Genvex temp T1"
     id: genvex_temp_t1
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -61,7 +62,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp T2 (Panel)"
+    name: "Genvex temp T2"
     id: genvex_temp_t2
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -75,7 +76,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp t3"
+    name: "Genvex temp T3"
     id: genvex_temp_t3
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -89,7 +90,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp t4"
+    name: "Genvex temp T4"
     id: genvex_temp_t4
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -103,7 +104,7 @@ sensor:
       
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp T7 (Extract)"
+    name: "Genvex temp T7"
     id: genvex_temp_t7
     unit_of_measurement: °C
     accuracy_decimals: 1
@@ -179,10 +180,10 @@ sensor:
     address: 106        
 
 text_sensor:
-  - platform: template
-    name: "Genvex Air Quality Index Humidity (AQI)"
-    id: aqi_humidity
-    icon: mdi:water-percent 
+#  - platform: template
+#    name: "Genvex Air Quality Index Humidity (AQI)"
+#    id: aqi_humidity
+#    icon: mdi:water-percent
 
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
