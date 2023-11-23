@@ -174,15 +174,15 @@ sensor:
       return ((x - 300) / 10);
 
   # Can't find humidity on Optima 301
-  # - platform: modbus_controller
-  #   modbus_controller_id: genvex_modbus_controller
-  #   name: "Genvex Messured Humidity"
-  #   id: genvex_messured_humidity
-  #   unit_of_measurement: '%'
-  #   accuracy_decimals: 1
-  #   device_class: humidity
-  #   register_type: read
-  #   address: 10
+  - platform: modbus_controller
+    modbus_controller_id: genvex_modbus_controller
+    name: "Genvex Messured Humidity"
+    id: genvex_messured_humidity
+    unit_of_measurement: '%'
+    accuracy_decimals: 1
+    device_class: humidity
+    register_type: read
+    address: 13
   #   #filters:
   #   #  - multiply: 0.01
   #   on_value: 
