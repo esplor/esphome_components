@@ -113,7 +113,7 @@ sensor:
     register_type: read
     address: 4
     lambda: |-
-      ESP_LOGD("T4", "Processing T4 using lambda");
+      ESP_LOGD("T5", "Processing T5 using lambda");
       return ((x - 300) / 10);
       
   - platform: modbus_controller
@@ -127,7 +127,7 @@ sensor:
     register_type: read
     address: 5
     lambda: |-
-      ESP_LOGD("T4", "Processing T4 using lambda");
+      ESP_LOGD("T6", "Processing T6 using lambda");
       return ((x - 300) / 10);
   
   - platform: modbus_controller
