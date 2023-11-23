@@ -146,8 +146,8 @@ sensor:
 
   - platform: modbus_controller
     modbus_controller_id: genvex_modbus_controller
-    name: Genvex temp T7
-    id: genvex_temp_t7
+    name: Genvex temp T8
+    id: genvex_temp_t8
     unit_of_measurement: °C
     accuracy_decimals: 1
     device_class: temperature
