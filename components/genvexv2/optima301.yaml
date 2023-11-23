@@ -12,7 +12,8 @@ select:
   - platform: genvexv2
     modbus_controller_id: genvex_modbus_controller
     name: "Genvex speed mode"
-    id: genvex_speed_mode    
+    id: genvex_speed_mode
+    icon: "mdi:fan"
     address: 100
     options:
       - "Off"
@@ -31,13 +32,6 @@ select:
       - "1"
       - "2"
       - "3"
-      - "4"
-      - "5"
-      - "6"
-      - "7"
-      - "8"
-      - "9"
-      
     
 sensor:
   - platform: template
@@ -63,6 +57,20 @@ sensor:
     address: 0
     lambda: |-
       ESP_LOGD("T1", "Processing T1 using lambda");
+      return ((x - 300) / 10);
+      
+  - platform: modbus_controller
+    modbus_controller_id: genvex_modbus_controller
+    name: "Genvex temp T2 (Panel)"
+    id: genvex_temp_t2
+    unit_of_measurement: °C
+    accuracy_decimals: 1
+    device_class: temperature
+    value_type: U_WORD
+    register_type: read
+    address: 9
+    lambda: |-
+      ESP_LOGD("T2", "Processing T2 panel using lambda");
       return ((x - 300) / 10);
       
   - platform: modbus_controller
@@ -106,20 +114,6 @@ sensor:
     lambda: |-
       ESP_LOGD("T7", "Processing T7 using lambda");
       return ((x - 300) / 10);    
-      
-  - platform: modbus_controller
-    modbus_controller_id: genvex_modbus_controller
-    name: "Genvex temp T2 (Panel)"
-    id: genvex_temp_t2
-    unit_of_measurement: °C
-    accuracy_decimals: 1
-    device_class: temperature
-    value_type: U_WORD
-    register_type: read
-    address: 9
-    lambda: |-
-      ESP_LOGD("T2", "Processing T2 panel using lambda");
-      return ((x - 300) / 10);
 
   # Can't find humidity on Optima 301
   # - platform: modbus_controller
